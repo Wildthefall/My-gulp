@@ -1,3 +1,23 @@
+// =================================
+// Styles
+// =================================
+
+html,body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// =================================
+// Import paths
+// =================================
+
 @import 'common/vars';
 @import 'common/fonts';
 @import 'common/mixins';

@@ -1,0 +1,54 @@
+mixin social-links(mod)
+    -var socials = {'vk' : '', 'gh' : '', 'in' : ''}
+    div(class= 'socials' + ((mod) ? ' socials--' + mod : ''))
+        each socialHref, socialName in socials
+            a(href= socialHref class= 'socials__icon' + ((mod) ? ' socials__icon--' + mod : '') + ((mod) ? ' socials__icon--' + socialName + '-' + mod : ' socials__icon--' + socialName))
+
+mixin author-avatar(mod)
+    div(class= 'author-avatar-container' + ((mod) ? ' author-avatar-container--' + mod : ''))
+        img(src='assets/img/author-card-avatar.jpg' alt='Аватар' class= 'author-avatar' + ((mod) ? ' author-avatar--' + mod : ''))
+
+mixin author-info(mod)
+    .author-info
+        +author-avatar(mod)
+        h1(class= 'author-info__title' + ((mod) ? ' author-info__title--' + mod : '')) Стас Мельников
+        p(class= 'author-info__desc' + ((mod) ? ' author-info__desc--' + mod : '')) Личный сайт веб разработчика
+
+mixin toggle()
+    .toggle
+        .toggle__line
+        .toggle__line
+        .toggle__line
+
+mixin main-menu()
+    -var menuItems = {'Мои работы' : '', 'Блог' : '', 'Обо мне' : 'about.html', 'Авторизация' : 'index.html'}
+    .menu
+        .menu__block-left
+        .menu__block-right
+        ul.menu__list
+            each itemHref, itemName in menuItems
+                li.menu__item
+                    a(href= itemHref).menu__link #{itemName}
+
+mixin header-triangle(mod)
+    svg(viewBox='0 0 1000 86' preserveAspectRatio='none').triangle
+        polygon(class='triangle triangle__left' + ((mod) ? ' triangle__left--' + mod : '') width='50%' points="0,0 0,86 500,86")
+        polygon(class='triangle triangle__right' + ((mod) ? ' triangle__right--' + mod : '') width='100%' points="1000,0 1000,86 500,86")
+
+mixin section-title(mod, content)
+    div(class= 'section-title' + ((mod) ? ' section-title--' + mod : ''))
+        h2(class= 'section-title__title' + ((mod) ? ' section-title__title--' + mod : '')) !{content}
+        div(class= 'section-title__bg' + ((mod) ? ' section-title__bg--' + mod : ''))
+
+mixin section-text(mod, content)
+    p(class='section-text' + ((mod) ? ' section-text--' + mod : '')) #{content}
+
+mixin graph(text, mod)
+    .graphs__graph.graph
+        svg(width='100%' height='100%')
+            circle(r='45' cx='50%' cy='50%' stroke='#ccc' stroke-width='20' fill='none')
+            circle(class='graph__circle' + ((mod) ? ' graph__circle--' + mod : '') r="45" cx='50%' cy='50%' stroke='#00bfa5' stroke-width='20' stroke-dasharray='282' fill='none')
+        .graph__text #{text}
+
+mixin contacts-text(mod, text)
+    div(class='contacts__text' + ((mod) ? ' contacts__text--' + mod : '')) #{text}

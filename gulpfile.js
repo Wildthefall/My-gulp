@@ -8,6 +8,7 @@ global.$ = {
     template: require('./gulp/paths/template.js'),
     jsFoundation: require('./gulp/paths/js.foundation.js'),
     cssFoundation: require('./gulp/paths/css.foundation.js'),
+    animateCss: require('./gulp/paths/animate.css.js'),
     app: require('./gulp/paths/app.js')
   },
   gulp: require('gulp'),
@@ -29,7 +30,8 @@ $.gulp.task('default', $.gulp.series(
     'js.process',
     'copy.fonts',
     'copy.image',
-    'css.foundation'
+    'css.foundation',
+    'animate.css'
   ),
   $.gulp.parallel(
     'watch',

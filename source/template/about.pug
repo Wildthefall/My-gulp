@@ -1,3 +1,81 @@
-//
-   Created by Очень on 27.06.2017.
+doctype html
+html
+    include common/_head
+    body
+        <!--[if lt IE 10]>
+        <p>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+        <![endif]-->
 
+        include common/_mixins
+
+        .wrap
+
+            +main-menu
+
+            .header
+                .header__top
+                    +social-links('header')
+                    +toggle
+                +author-info('header')
+                .arrow
+                +header-triangle('about')
+
+            .about-author
+
+                .about-author__info
+                    +section-title('about-author', 'Обо мне')
+                    +author-avatar('about-author')
+                    +section-title('small-title', 'Кто я')
+                    +section-text('about-author', 'Я веб разработчик из Перми. Мне 20 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.')
+                    +section-text('about-author', 'Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!')
+
+                .skills
+                    +section-title('skills', 'Чем я могу быть <br> вам полезен')
+                    +section-text('skills', 'Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.')
+
+                    h2.skills__title Frontend
+                    .graphs
+                        +graph('HTML5', 'html')
+                        +graph('CSS3', 'css')
+                        +graph('JavaScript & jQuery', 'js')
+
+                    h2.skills__title Backend
+                    .graphs
+                        +graph('PHP', 'php')
+                        +graph('mySQL', 'mysql')
+                        +graph('Node.js & npm', 'nodejs')
+                        +graph('Mongo.db', 'mongo')
+
+                    h2.skills__title WorkFlow
+                    .graphs
+                        +graph('Git', 'git')
+                        +graph('Gulp', 'gulp')
+                        +graph('Bower', 'bower')
+
+            .contacts
+
+                .contacts__map
+                    iframe(src='https://snazzymaps.com/embed/7839', width='100%', height='100%', style='border:none;')
+                .contacts__info
+                    +section-title('contacts', 'Контакты')
+                    +contacts-text('skype', 'Dante2143')
+                    +contacts-text('mail','mielnikov.stas@gmail.com')
+                    +contacts-text('tel', '8 965 557 89 58')
+                    +contacts-text('city', 'г. Пермь, ул. Плеханова 68')
+
+            .footer
+                .footer__top
+                    .footer__menu.menu-footer
+                        -var menuItems = {'Мои работы' : '', 'Блог' : '', 'Обо мне' : 'about.html', 'Авторизация' : 'index.html'}
+                        ul.menu-footer__list
+                            each itemHref, itemName in menuItems
+                                li.menu-footer__item
+                                    a(href= itemHref).menu-footer__link #{itemName}
+
+                    +social-links('footer')
+
+                .footer__bottom
+                    .footer__text
+                        | Я веб-разработчик из Перми, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                    .footer__caption
+                        | © Стас Мельников | создано с любовью в LoftSchool | 2017

@@ -1,16 +1,33 @@
-@mixin flexbox($flex-direction: row, $justify-content: flex-start, $align-items: stretch) {
-  display: flex;
-  flex-direction: $flex-direction;
-  justify-content: $justify-content;
-  align-items: $align-items;
+@function rem($px) {
+  @return $px / 14px + 0rem;
 }
 
 // =================================
 // Media
 // =================================
 
-@mixin mq-small {
-  @media (min-width: $screen-small) {
+@mixin media($screen-size) {
+  $screen-sizes: (lg: 1200px, md: 992px, sm: 768px, xs: 480px, xxs: 320px);
+  @media screen and (min-width: $screen-size) {
     @content
   }
+}
+
+// =================================
+// Custom placeholder
+// =================================
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+}
+
+// =================================
+// Skill progress
+// =================================
+
+@mixin progress($procents) {
+  stroke-dashoffset: 282 - ($procents * 282 / 100);
 }

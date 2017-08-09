@@ -4,6 +4,11 @@ mixin social-links(mod)
         each socialHref, socialName in socials
             a(href= socialHref class= 'socials__icon' + ((mod) ? ' socials__icon--' + mod : '') + ((mod) ? ' socials__icon--' + socialName + '-' + mod : ' socials__icon--' + socialName))
 
+mixin social-svg(icon, mod)
+    a(href='#' class= 'socials__icon' + ((mod) ? ' socials__icon--' + mod : ''))
+        svg(width='100%' height='100%')
+            use(xlink:href='assets/icons/icons-sprite.svg#icon-' + icon)
+
 mixin author-avatar(mod)
     div(class= 'author-avatar-container' + ((mod) ? ' author-avatar-container--' + mod : ''))
         img(src='assets/img/author-card-avatar.jpg' alt='Аватар' class= 'author-avatar' + ((mod) ? ' author-avatar--' + mod : ''))
@@ -22,7 +27,7 @@ mixin toggle()
 
 mixin main-menu()
     -var menuItems = {'Мои работы' : '', 'Блог' : '', 'Обо мне' : 'about.html', 'Авторизация' : 'index.html'}
-    .menu
+    nav.menu
         .menu__block-left
         .menu__block-right
         ul.menu__list

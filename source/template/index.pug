@@ -12,54 +12,59 @@ html
 
             include common/_parallax
 
-            .main-header
+            header.main-header
                 button.login-btn Авторизоваться
 
-            .main-container
-                .author-card
+            main
+                section.main-container
+                    section.author-card
 
-                    .author-card__front-side
-                        .author-card__about-author
-                            +author-info('author-card')
-                            +social-links
+                        .author-card__front-side
+                            .author-card__about-author
+                                +author-info('author-card')
+                                div.socials
+                                    +social-svg('vk')
+                                    +social-svg('github')
+                                    +social-svg('in')
 
-                        .author-card__menu.menu-author-card
-                            ul.menu-author-card__list
-                                li.menu-author-card__item
-                                    a(href="#").menu-author-card__link Мои работы
-                                li.menu-author-card__item
-                                    a(href="about.html").menu-author-card__link Обо мне
-                                li.menu-author-card__item
-                                    a(href="#").menu-author-card__link Блог
 
-                    .author-card__back-side
-                        form(method='get' action='#').login-form
-
-                            +section-title('login-form', 'Авторизуйтесь')
-
-                            .login-form__field-container
-                                input(type='text' placeholder='Логин' required).login-form__login
-                            .login-form__field-container.login-form__field-container--password
-                                input(type='text' placeholder='Пароль' required).login-form__password
-
-                            input(type='checkbox' id='captcha' required).login-form__captcha-checkbox
-                            label(for='captcha').login-form__captcha-label.login-form__captcha-label--checkbox Я человек
-
-                            h2.login-form__captcha-title Вы точно не робот?
-
-                            .login-form__radio-container
-                                input(type='radio' name='captcha-radio' id='captcha-radio-yes' required).login-form__captcha-radio
-                                label(for='captcha-radio-yes').login-form__captcha-label.login-form__captcha-label--radio Да
-                                input(type='radio' name='captcha-radio' id='captcha-radio-no' required).login-form__captcha-radio
-                                label(for='captcha-radio-no').login-form__captcha-label.login-form__captcha-label--radio Не уверен
-
-                            .author-card__menu.menu-author-card.menu-author-card--login-form
+                            nav.author-card__menu.menu-author-card
                                 ul.menu-author-card__list
                                     li.menu-author-card__item
-                                        a(href='index.html').menu-author-card__link На главную
+                                        a(href="#").menu-author-card__link Мои работы
                                     li.menu-author-card__item
-                                        input(type='submit' value='Войти').menu-author-card__link.menu-author-card__link--submit
+                                        a(href="about.html").menu-author-card__link Обо мне
+                                    li.menu-author-card__item
+                                        a(href="#").menu-author-card__link Блог
 
-            .main-footer
+                        .author-card__back-side
+                            form(method='get' action='#').login-form
+
+                                +section-title('login-form', 'Авторизуйтесь')
+
+                                .login-form__field-container
+                                    input(type='text' placeholder='Логин' required).login-form__login
+                                .login-form__field-container.login-form__field-container--password
+                                    input(type='text' placeholder='Пароль' required).login-form__password
+
+                                input(type='checkbox' id='captcha' required).login-form__captcha-checkbox
+                                label(for='captcha').login-form__captcha-label.login-form__captcha-label--checkbox Я человек
+
+                                h2.login-form__captcha-title Вы точно не робот?
+
+                                .login-form__radio-container
+                                    input(type='radio' name='captcha-radio' id='captcha-radio-yes' required).login-form__captcha-radio
+                                    label(for='captcha-radio-yes').login-form__captcha-label.login-form__captcha-label--radio Да
+                                    input(type='radio' name='captcha-radio' id='captcha-radio-no' required).login-form__captcha-radio
+                                    label(for='captcha-radio-no').login-form__captcha-label.login-form__captcha-label--radio Не уверен
+
+                                nav.author-card__menu.menu-author-card.menu-author-card--login-form
+                                    ul.menu-author-card__list
+                                        li.menu-author-card__item
+                                            a(href='index.html').menu-author-card__link На главную
+                                        li.menu-author-card__item
+                                            input(type='submit' value='Войти').menu-author-card__link.menu-author-card__link--submit
+
+            footer.main-footer
                 .main-footer__copyrigth © Стас Мельников
                 .main-footer__desc создано с любовью в LoftSchool | 2017

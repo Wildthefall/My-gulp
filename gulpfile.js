@@ -13,6 +13,7 @@ global.$ = {
   },
   gulp: require('gulp'),
   rimraf: require('rimraf'),
+  svgSprite: require('gulp-svg-sprites'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
 };
@@ -31,7 +32,8 @@ $.gulp.task('default', $.gulp.series(
     'copy.fonts',
     'copy.image',
     'css.foundation',
-    'animate.css'
+    'animate.css',
+    'svg.sprite'
   ),
   $.gulp.parallel(
     'watch',

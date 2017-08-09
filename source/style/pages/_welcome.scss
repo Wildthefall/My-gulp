@@ -276,32 +276,7 @@
     margin-right: 27px;
     width: 32px;
     height: 22px;
-    background: url(../img/sprite.png) no-repeat;
     transition: opacity $transition-medium;
-
-    &--vk {
-      background-position: 0 -22px;
-      opacity: .5;
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    &--gh {
-      background-position: -32px -22px;
-      opacity: .5;
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    &--in {
-      background-position: -64px -22px;
-      opacity: .5;
-      &:hover {
-        opacity: 1;
-      }
-    }
   }
 
   &__icon:last-child {

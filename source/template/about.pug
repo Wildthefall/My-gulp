@@ -12,7 +12,7 @@ html
 
             +main-menu
 
-            .header
+            header.header
                 .header__top
                     +social-links('header')
                     +toggle
@@ -20,8 +20,7 @@ html
                 .arrow
                 +header-triangle('about')
 
-            .about-author
-
+            section.about-author
                 .about-author__info
                     +section-title('about-author', 'Обо мне')
                     +author-avatar('about-author')
@@ -52,8 +51,7 @@ html
                         +graph('Gulp', 'gulp')
                         +graph('Bower', 'bower')
 
-            .contacts
-
+            section.contacts
                 .contacts__map
                     iframe(src='https://snazzymaps.com/embed/7839', width='100%', height='100%', style='border:none;')
                 .contacts__info
@@ -63,7 +61,7 @@ html
                     +contacts-text('tel', '8 965 557 89 58')
                     +contacts-text('city', 'г. Пермь, ул. Плеханова 68')
 
-            .footer
+            footer.footer
                 .footer__top
                     .footer__menu.menu-footer
                         -var menuItems = {'Мои работы' : '', 'Блог' : '', 'Обо мне' : 'about.html', 'Авторизация' : 'index.html'}
@@ -72,7 +70,10 @@ html
                                 li.menu-footer__item
                                     a(href= itemHref).menu-footer__link #{itemName}
 
-                    +social-links('footer')
+                    div.socials.socials--footer
+                        +social-svg('vk', 'footer')
+                        +social-svg('github', 'footer')
+                        +social-svg('in', 'footer')
 
                 .footer__bottom
                     .footer__text
